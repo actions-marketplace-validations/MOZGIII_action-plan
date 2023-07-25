@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+test() {
+  local PLAN_FILE="$1"
+  local PLAN="$2"
+
+  (
+    export INPUT_PLAN_FILE="$PLAN_FILE"
+    export INPUT_PLAN="$PLAN"
+
+    yarn try
+  )
+}
+
+test "test/simple-default/plan.ts" "default"
+test "test/simple-non-default/plan.ts" "test"
+test "test/multi-file/plan.ts" "default"
+test "test/import-packages-with-types/plan.ts" "default"
+test "test/import-packages-no-types/plan.ts" "default"

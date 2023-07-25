@@ -1,0 +1,8 @@
+name: "Action Plan"
+description: "Generate Github Actions matrix."
+outputs:
+  matrix:
+    description: "The generated matrix."
+runs:
+  using: "node16"
+  main: "build/index.js"
