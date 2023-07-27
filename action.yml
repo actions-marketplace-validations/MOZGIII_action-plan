@@ -13,4 +13,4 @@ outputs:
     description: "The generated matrix."
 runs:
   using: "node16"
-  main: "build/main/index.js"
+  main: "build/loader/index.js"
