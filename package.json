@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "try": "tsc && node build/main/index.js",
+    "try:loader": "tsc && node build/loader/index.js",
     "build": "tsc",
     "build:integrity-check": "yarn build && bin/check-build-integrity",
     "test": "bin/test",
