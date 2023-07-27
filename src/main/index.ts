@@ -5,7 +5,7 @@ const main = async () => {
   const planFile =
     core.getInput("plan_file", {}) ||
     core.getInput("plan-file", { required: true });
-  console.log(`Loading plan file ${planFile}`);
+  console.log(`Loading plan file ${planFile} at ${process.cwd()}`);
 
   const plan = core.getInput("plan", { required: true });
 

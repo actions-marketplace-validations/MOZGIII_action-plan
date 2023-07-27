@@ -3,8 +3,9 @@ import { readFile } from "fs/promises";
 import path from "path";
 import { readFileSync } from "fs";
 import nodeModule from "module";
+import root from "../common/root.js";
 export const createCompiler = (_rootFile) => create({
-    project: "./tsconfig.runtime.json",
+    project: path.resolve(root, "tsconfig.runtime.json"),
     esm: true,
     compilerOptions: {
         // The way we interact with the file requires that it is built as

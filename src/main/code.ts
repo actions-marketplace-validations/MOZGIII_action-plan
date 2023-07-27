@@ -3,10 +3,11 @@ import { readFile } from "fs/promises";
 import path from "path";
 import { readFileSync } from "fs";
 import nodeModule from "module";
+import root from "../common/root.js";
 
 export const createCompiler = (_rootFile: string): Service =>
   create({
-    project: "./tsconfig.runtime.json",
+    project: path.resolve(root, "tsconfig.runtime.json"),
     esm: true,
 
     compilerOptions: {

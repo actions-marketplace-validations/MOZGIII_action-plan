@@ -1,5 +1,9 @@
 import { SpawnOptions, spawn } from "child_process";
 import { stat } from "fs/promises";
+import path from "path";
+import root from "../common/root.js";
+
+const nodeModulesPath = path.resolve(root, "node_modules");
 
 export const ensurePackagesInstalled = async () => {
   const shouldSkipInstall = await nodeModulesExists();
@@ -10,7 +14,7 @@ export const ensurePackagesInstalled = async () => {
 
 export const nodeModulesExists = async () => {
   try {
-    await stat("node_modules");
+    await stat(nodeModulesPath);
   } catch {
     return false;
   }
@@ -19,6 +23,7 @@ export const nodeModulesExists = async () => {
 
 export const installPackages = async () =>
   spawnSimple("yarn", ["install", "--immutable", "--immutable-cache"], {
+    cwd: root,
     stdio: "inherit",
     windowsHide: true,
   });
