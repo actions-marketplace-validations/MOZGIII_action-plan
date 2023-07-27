@@ -8,6 +8,9 @@ const main = async () => {
   console.log(`Loading plan file ${planFile} at ${process.cwd()}`);
 
   const tsconfig = core.getInput("tsconfig") || undefined;
+  if (tsconfig) {
+    console.log(`Using custom tsconfig ${tsconfig}`);
+  }
 
   const plan = core.getInput("plan", { required: true });
 
